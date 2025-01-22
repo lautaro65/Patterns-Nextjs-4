@@ -1,11 +1,10 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import { motion, useAnimation } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const NeuralNetworkPattern: React.FC = () => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
-  const controls = useAnimation()
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -56,7 +55,7 @@ const NeuralNetworkPattern: React.FC = () => {
       <svg width="100%" height="100%">
       {nodes.map((node, i) => (
         <React.Fragment key={node.id}>
-          {nodes.slice(i + 1).map((endNode, j) => drawLine(node, endNode, `line-${node.id}-${endNode.id}`))}
+          {nodes.slice(i + 1).map((endNode) => drawLine(node, endNode, `line-${node.id}-${endNode.id}`))}
         </React.Fragment>
       ))}
         {nodes.map((node) => (
